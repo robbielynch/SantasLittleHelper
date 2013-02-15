@@ -4,8 +4,8 @@ public class ClientInfo {
 	
 	private static String clientName = "CacafogoStealth";
 	private static String clientUserName = "robbio87";
-	private static String clientEmail = "robbio87@gmail.com";
-	private static String clientPass = "7803013u";
+	private static String clientEmail = "PUT-YOUR-EMAIL-ADDRESS-HERE";
+	private static String clientPass = "PUT-YOUR-EMAIL-PASSWORD-HERE";
 	
 	
 	//Incoming SMS Info
